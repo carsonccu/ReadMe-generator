@@ -69,14 +69,14 @@ function licenseBadge(answers) {
 }
 
 
-const genereateHTML = ({ title, description, installation, usage, license, contribute, tests, github, emailphone }) =>
+const genereateHTML = ({ title, description, installation, usage, badge, license, contribute, tests, github, emailphone }) =>
     `# ${title}
 
 ## Description
 ${description}
 <br/>
 
-${licenseBadge(answers)}
+${licenseBadge(badge)}
 ## Table of Contents
 1. [ Description. ](#description)
 2. [ Installation. ](#installation)
@@ -84,7 +84,8 @@ ${licenseBadge(answers)}
 4. [ License. ](#license)
 5. [ Contribute. ](#contribute)
 6. [ Tests. ](#tests)
-7. [ Email/Phone. ](#emailphone)
+7. [ Github. ](#github)
+8. [ Email/Phone. ](#emailphone)
 ## Installation
 ${installation}
 ## Usage
@@ -95,6 +96,8 @@ ${license}
 ${contribute}
 ## Tests
 ${tests}
+##Github
+${github}
 ## Email and Phone
 ${emailphone}
  `;
