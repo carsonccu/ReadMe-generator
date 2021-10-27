@@ -57,10 +57,10 @@ function licenseBadge(answers) {
     if (answers === "Apache 2.0 License") {
         return "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
     }
-    if (copyright === "MIT License") {
+    if (answers === "MIT License") {
         return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
     }
-    if (copyright === "Creative Commons - CC0") {
+    if (answers === "Creative Commons - CC0") {
         return `[![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)](http://creativecommons.org/publicdomain/zero/1.0/)`
     }
     if (answers === "none") {
@@ -76,7 +76,7 @@ const genereateHTML = ({ title, description, installation, usage, license, contr
 ${description}
 <br/>
 
-${licenseBadge(badge)}
+${licenseBadge(answers)}
 ## Table of Contents
 1. [ Description. ](#description)
 2. [ Installation. ](#installation)
