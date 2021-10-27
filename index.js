@@ -69,20 +69,32 @@ function licenseBadge(answers) {
 }
 
 
-const genereateHTML = ({ title, description, installation, usage, license, contribute, tests, github, emailphone })
-    // "# ${title}
+const genereateHTML = ({ title, description, installation, usage, license, contribute, tests, github, emailphone }) =>
+    `# ${title}
 
-// ##Decription
-// ${ description }
+## Description
+${description}
+<br/>
 
-// ${ renderBadge(badge) }
-
-// ## Table of Contents
-// 1.[Description. ]{#description }
-// 2.
-// 3.
-// 4.
-// 5.
-// 6.
-// 7.
-// ";
+${licenseBadge(badge)}
+## Table of Contents
+1. [ Description. ](#description)
+2. [ Installation. ](#installation)
+3. [ Usage. ](#usage)
+4. [ License. ](#license)
+5. [ Contribute. ](#contribute)
+6. [ Tests. ](#tests)
+7. [ Email/Phone. ](#emailphone)
+## Installation
+${installation}
+## Usage
+${usage}
+## License
+${license}
+## Contribute
+${contribute}
+## Tests
+${tests}
+## Email and Phone
+${emailphone}
+ `;
