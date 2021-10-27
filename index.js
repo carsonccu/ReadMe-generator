@@ -98,3 +98,12 @@ ${tests}
 ## Email and Phone
 ${emailphone}
  `;
+
+const init = () => {
+    promptUser()
+        .then((userInput) => fs.writeFileSync('README.md', genereateHTML(userInput)))
+        .then(() => console.log('Successfully wrote to README.MD'))
+        .catch((err) => console.error(err));
+};
+
+init();
