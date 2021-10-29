@@ -1,6 +1,7 @@
 
 const inquirer = require('inquirer');
 const fs = require('fs');
+// const badge = require('utils/generateMarkdown.js')
 
 const promptUser = () => {
     return inquirer.prompt([
@@ -53,30 +54,14 @@ const promptUser = () => {
     ])
 }
 
-function licenseBadge(answers) {
-    if (answers === "Apache 2.0 License") {
-        return "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
-    }
-    if (answers === "MIT License") {
-        return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
-    }
-    if (answers === "Creative Commons - CC0") {
-        return `[![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)](http://creativecommons.org/publicdomain/zero/1.0/)`
-    }
-    if (answers === "none") {
-        return "";
-    }
-}
-
-
-const genereateHTML = ({ title, description, installation, usage, badge, license, contribute, tests, github, emailphone }) =>
+const genereateHTML = ({ title, description, installation, usage, license, contribute, tests, github, emailphone }) =>
     `# ${title}
 
 ## Description
 ${description}
 <br/>
 
-${licenseBadge(badge)}
+${makeBadge(license)}
 ## Table of Contents
 1. [ Description. ](#description)
 2. [ Installation. ](#installation)
@@ -92,15 +77,28 @@ ${installation}
 ${usage}
 ## License
 ${license}
-## Contribute
+## Contributors
 ${contribute}
 ## Tests
 ${tests}
-##Github
+## Github
 ${github}
 ## Email and Phone
 ${emailphone}
  `;
+
+
+function makeBadge(select) {
+    if (select === "The Apache License") {
+        return "[![License](https://img.shields.io/badge/License-Apache%202.0-orange)](https://opensource.org/licenses/Apache-2.0)"
+    }
+    if (select === "MIT License") {
+        return "[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)"
+    }
+    if (select === "Creative Commons - CC0") {
+        return "[![License](https://img.shields.io/badge/License-Creative%20Commons%20--%20CCO-blue)](http://creativecommons.org/publicdomain/zero/1.0/)"
+    }
+}
 
 const init = () => {
     promptUser()
